@@ -4,7 +4,7 @@ import './App.css';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import FoodCards from './components/FoodCards';
-//import 'semantic-ui-css/semantic.min.css';
+import 'semantic-ui-css/semantic.min.css';
 
 class App extends React.Component {
   constructor() {

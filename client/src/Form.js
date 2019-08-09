@@ -4,9 +4,7 @@ import * as Yup from 'yup';
 import axios from 'axios';
 
 const LoginForm = ({values, errors, touched, status}) => {
-    const [users, setUsers] = useState([{
-        username: "Your name",
-        password: "password"}])
+    const [users, setUsers] = useState([])
 
     useEffect(()=>{
     console.log('infinite looping?')
@@ -32,8 +30,7 @@ const LoginForm = ({values, errors, touched, status}) => {
       return ( 
         <div class="card">
         <div class="content">
-          <div class="header" key={user.id}>{user.name}</div>
-          <div class="description" key={user.id}>{user.password}</div>
+          <div class="header" key={user.id}>{user}</div>
         </div>
         </div>
       )})}
@@ -66,7 +63,7 @@ const FormikLoginForm = withFormik({
               console.log(res);
               resetForm();
               setSubmitting(false);
-              setStatus(res.data);
+              setStatus(res.data.message);
             })
             .catch(err => {
               console.log(err);

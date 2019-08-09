@@ -10,7 +10,7 @@ const FoodCards = props => {
       <div class="header">{item.name}</div>
       <div>{item.course}</div>
       <div>{item.technique}</div>
-      <div>{item.ingredients}</div>
+      <div>ingredients: {item.ingredients}</div>
      </div>
       </div>
       )})}
