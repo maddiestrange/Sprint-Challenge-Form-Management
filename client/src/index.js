@@ -1,12 +1,50 @@
 import React from 'react';
+import FormikLoginForm from './Form';
+import './App.css';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
+import FoodCards from './components/FoodCards';
+//import 'semantic-ui-css/semantic.min.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+    food: [{
+        name: 'hello'
+    }
+    ]
+    };
+  }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  componentDidMount() {
+    this.callAPI();
+    console.log('food:', this.state)
+  }
+
+  callAPI = () => {
+    axios
+    .get(`http://localhost:5000/api/restricted/data`)
+      .then(data => {
+        this.setState({
+            food: data.data
+            })
+            console.log(this.state)
+        })
+        .catch(err => {
+            console.log(err);
+        });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <FormikLoginForm />
+        <FoodCards food={this.state.food}/>
+      </div>
+    );
+  }
+}
+
+const rootElement = document.getElementById("root");
+ReactDOM.render(<App />, rootElement);
