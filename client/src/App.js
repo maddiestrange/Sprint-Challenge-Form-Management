@@ -16,6 +16,8 @@ class App extends React.Component {
     };
   }
 
+ 
+
   componentDidMount() {
     this.callAPI();
     console.log('food:', this.state)
@@ -43,9 +45,7 @@ class App extends React.Component {
       </div>
     );
   }
+ 
 }
 export default App;
 
-exports.sum = function (a, b) {
-    return a + b;
-  }

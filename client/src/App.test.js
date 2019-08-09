@@ -2,8 +2,8 @@ import React from 'react';
 import * as rtl from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import App from './App.js';
+import sum from './sum.js'
 
-const help = require('./App');
 
 describe('<App />', () => {
   it('renders without crashing', () => {
@@ -13,6 +13,7 @@ describe('<App />', () => {
   })
 });
 
+const help = require('./sum');
 
 describe('sum function', () => {
   it('sums two integers', () => {
